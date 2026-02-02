@@ -12,7 +12,10 @@ body {
   background-position: 0% 0%, 100% 100%, center;
   animation: 
     drift-nebula 240s linear infinite,
-    drift-stars 360s linear infinite reverse;
+ img {
+    height: 40px;
+    width: 40px;
+}   drift-stars 360s linear infinite reverse;
 }
 @media (max-height: 600px) {
   .avatar { width: 140px; height: 140px; }
