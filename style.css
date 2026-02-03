@@ -1,34 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   height: 100vh;
-  font-family: 'Inter', sans-serif;
-  background: #000814;  /* deep navy-black */
+  display: grid;
+  place-items: center;
+  font-family: "Geist", sans-serif;
+  background: #000814; /* deep navy-black */
   color: var(--text);
   overflow: hidden;
-  background-image: 
-    radial-gradient(circle at 25% 15%, rgba(100, 150, 255, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 75% 80%, rgba(200, 100, 255, 0.06) 0%, transparent 60%),
-    url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=2071&auto=format&fit=crop'); /* subtle starry nebula - or find darker one */
-  background-size: 200% 200%, 180% 180%, cover;
-  background-position: 0% 0%, 100% 100%, center;
-  animation: 
-    drift-nebula 240s linear infinite,
- img {
-    height: 40px;
-    width: 40px;
-}   drift-stars 360s linear infinite reverse;
+  background-image:
+    radial-gradient(
+      circle at 25% 15%,
+      rgba(100, 150, 255, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 75% 80%,
+      rgba(200, 100, 255, 0.06) 0%,
+      transparent 60%
+    ),
+    url(https://usagif.com/wp-content/uploads/gif/outerspace-70.gif); /* subtle starry nebula - or find darker one */
+  background-size:
+    200% 200%,
+    180% 180%,
+    cover;
+  background-position:
+    0% 0%,
+    100% 100%,
+    center;
+  /* animation: drift-nebula 5s ease-in-out infinite; */
 }
+
+img {
+  height: 40px;
+  width: 40px;
+  /* animation: 5s linear infinite reverse; */
+}
+
 @media (max-height: 600px) {
-  .avatar { width: 140px; height: 140px; }
-  h1 { font-size: 3rem; }
-  .socials { margin-top: 1rem; gap: 1.5rem; }
+  .avatar {
+    width: 140px;
+    height: 140px;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  .socials {
+    margin-top: 1rem;
+    gap: 1.5rem;
+  }
 }
 
 @keyframes drift-nebula {
-  0%   { background-position: 0% 0%, 100% 100%, center; }
-  100% { background-position: 200% 200%, -80% -80%, center; }
+  0% {
+    background-position:
+      0% 0%,
+      100% 100%,
+      center;
+  }
+  100% {
+    background-position:
+      200% 200%,
+      -80% -80%,
+      center;
+  }
 }
 
 @keyframes drift-stars {
-  0%   { background-position: 0% 0%, 100% 100%, center; }
-  100% { background-position: -150% -150%, 250% 250%, center; }
+  0% {
+    background-position:
+      0% 0%,
+      100% 100%,
+      center;
+  }
+  100% {
+    background-position:
+      -150% -150%,
+      250% 250%,
+      center;
+  }
+}
+
+.container {
+  background-image: url(https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUyZW4wd3BoNnJ1aWxra2Y3dHI4M3kxb3R2cWtlcWR4aGV6N2FyaHFudyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/aRZ4vTsHnyW6A/source.gif);
+  display: grid;
+  place-items: center;
+  gap: 2rem;
+  color: #ffffff;
+  border-radius: 1.5rem;
+  padding: 3rem 4rem;
+  width: 40%;
+
+  box-shadow:
+    -1px -2px 1px rgb(255 255 255 / 12%),
+    0 2px 2px rgb(255 255 255 / 12%),
+    0 4px 4px rgb(0 0 0 / 12%),
+    0 8px 8px rgb(9 12 26),
+    0 16px 16px rgb(10 13 26);
+}
+
+.socials {
+  display: inline-flex;
+  gap: 2rem;
+}
+.socials img {
+  filter: invert(1);
+  opacity: 0.9;
+  height: 30px;
+  width: 30px;
+  mask-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgb(0 0 0)),
+    to(rgb(0 0 0 / 30%))
+  );
+  transition: all ease-in-out 200ms;
+}
+
+.socials img:hover {
+  opacity: 1;
+  mask-image: none;
+}
+
+.info {
+  display: inline-flex;
+  place-items: center;
+  gap: 3rem;
+}
+
+.details {
+  display: grid;
+  gap: 0.5rem;
+  font-family: "Geist Mono";
+}
+
+.details h1 {
+  font-family: "Geist";
+  transition: letter-spacing ease-out 200ms;
+}
+
+.avatar {
+  user-select: none;
+  height: 8rem;
+  width: 8rem;
+  border-radius: 1.5rem;
+  box-shadow:
+    -1px -2px 1px rgba(0, 0, 0, 0.12),
+    0 2px 2px rgba(0, 0, 0, 0.12),
+    0 4px 4px rgba(0, 0, 0, 0.12),
+    0 8px 8px rgba(0, 0, 0, 0.12),
+    0 16px 16px rgba(0, 0, 0, 0.12);
+  transition: transform ease-in-out 100ms;
+}
+
+.avatar:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.avatar:hover + .details h1 {
+  letter-spacing: 0.5rem;
 }
